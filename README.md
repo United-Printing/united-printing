@@ -1,24 +1,41 @@
-# united-printing
+<h1 align="center">
+  United Printing
+</h1>
 
-## Project setup
+<p align="center">
+  <a href="https://www.unitedprintingnc.com/">Website</a>
+  ·
+  <a href="https://github.com/andyruwruw/united-printing/issues">Submit an Issue</a>
+</p>
+
+United Printing Company's website was developed using [Vue.js](https://vuejs.org/) based on the designs provided.
+
+# Table of Contents
+
+- [Usage](#usage)
+
+# Usage
+
+One the repo is cloned, use [npm](https://nodejs.org/en) to install all required dependencies.
+
 ```
-npm install
+$ npm i
 ```
 
-### Compiles and hot-reloads for development
+To compile and run locally with hot-reloads run:
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+To compile to build for production run:
+
 ```
 npm run build
 ```
 
-### Lints and fixes files
+To run linting and fixes run:
+
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
