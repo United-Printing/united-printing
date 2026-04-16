@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page relative bg-dark text-white overflow-hidden">
+  <div class="home-page relative bg-dark text-white overflow-x-hidden">
     <!-- ==========================================
          HERO SECTION — Full viewport editorial
          ========================================== -->
@@ -31,14 +31,13 @@
           </div>
 
           <!-- Hero title — cycling presets -->
-          <transition name="hero-swap">
+          <transition name="hero-swap" mode="out-in">
             <div :key="active" class="hero-content">
               <h1 class="text-editorial hero-size text-white mb-6 sm:mb-8">
                 <span
                   v-for="(word, i) in presets[active].title"
                   :key="i"
-                  class="mr-[0.25em]"
-                  :class="word.accent ? 'text-accent' : ''">{{ word.text }}</span>
+                  :class="word.accent ? 'text-accent' : ''">{{ word.text }}{{ ' ' }}</span>
               </h1>
 
               <p class="text-[17px] sm:text-[19px] leading-relaxed text-white/60 max-w-[520px] font-light">
@@ -274,9 +273,9 @@ useScrollReveal()
 </script>
 
 <style scoped>
-/* Hero sizing — scales with viewport, capped to prevent overflow */
+/* Hero sizing — bold but wraps naturally on all viewports */
 .hero-size {
-  font-size: clamp(28px, 5.5vw, 72px);
+  font-size: clamp(32px, 5.5vw, 72px);
 }
 
 /* Geometric accent elements */
@@ -318,20 +317,16 @@ useScrollReveal()
   50% { transform: translate(-20px, 15px); }
 }
 
-/* Hero text swap transition */
+/* Hero text swap transition — fast out-in to prevent stuck state */
 .hero-swap-enter-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.4s ease;
 }
 
 .hero-swap-leave-active {
-  transition: opacity 0.3s ease;
-  position: absolute;
+  transition: opacity 0.2s ease;
 }
 
-.hero-swap-enter-from {
-  opacity: 0;
-}
-
+.hero-swap-enter-from,
 .hero-swap-leave-to {
   opacity: 0;
 }
