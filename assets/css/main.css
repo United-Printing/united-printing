@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Helvetica Now Micro Font Faces */
+@font-face {
+  font-family: 'Helvetica Now';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/HelveticaNowMicro-Regular.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/HelveticaNowMicro-Medium.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/HelveticaNowMicro-Bold.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/HelveticaNowMicro-ExtraBold.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/HelveticaNowMicro-Light.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/HelveticaNowMicro-ExtraLight.otf') format('opentype');
+  font-display: swap;
+}
+
+/* ============================================
+   EDITORIAL INDUSTRIAL — Global Design System
+   ============================================ */
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+/* Scroll reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for reveal groups */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ============================================
+   Print-Inspired Patterns
+   ============================================ */
+
+/* Halftone dot pattern overlay */
+.halftone {
+  background-image: radial-gradient(circle, currentColor 0.5px, transparent 0.5px);
+  background-size: 8px 8px;
+}
+
+.halftone-lg {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Registration crosshair marks */
+.reg-mark::before {
+  content: '⊕';
+  font-size: 12px;
+  opacity: 0.25;
+  font-family: 'Helvetica Now', sans-serif;
+}
+
+/* Crop mark corners */
+.crop-marks {
+  --crop-size: 24px;
+  --crop-color: rgba(255, 255, 255, 0.15);
+}
+
+.crop-marks::before,
+.crop-marks::after {
+  content: '';
+  position: absolute;
+  width: var(--crop-size);
+  height: var(--crop-size);
+}
+
+.crop-marks::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid var(--crop-color);
+  border-left: 1px solid var(--crop-color);
+}
+
+.crop-marks::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid var(--crop-color);
+  border-right: 1px solid var(--crop-color);
+}
+
+/* ============================================
+   Typography Utilities
+   ============================================ */
+
+/* Editorial large display text */
+.text-editorial {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+/* Light display contrast */
+.text-editorial-light {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+/* Mono-style label */
+.text-label {
+  font-family: 'Helvetica Now', 'Helvetica', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   Animated Gradient Mesh Background
+   ============================================ */
+
+@keyframes meshShift {
+  0% { background-position: 0% 50%, 100% 50%, 50% 0%; }
+  25% { background-position: 50% 0%, 0% 100%, 100% 50%; }
+  50% { background-position: 100% 50%, 50% 0%, 0% 100%; }
+  75% { background-position: 50% 100%, 100% 0%, 50% 50%; }
+  100% { background-position: 0% 50%, 100% 50%, 50% 0%; }
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(25, 180, 176, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(254, 225, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(25, 180, 176, 0.1) 0%, transparent 60%);
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  animation: meshShift 20s ease-in-out infinite;
+}
+
+/* ============================================
+   Noise Texture Overlay
+   ============================================ */
+
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMFBQUFBQWoaCLiAAAAPklEQVQ4y2NggANGJyjgYGJiYmBgYmIAAmYmBgYGZhAXxGYCsxlAbCYwG8xlYgaxmYBsBjCbCchmArOZhgIAAIDjBAlbNas1AAAAAElFTkSuQmCC");
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================
+   Interactive Elements
+   ============================================ */
+
+/* Magnetic button effect */
+.btn-magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-magnetic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform: translateY(101%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-magnetic:hover::before {
+  transform: translateY(0);
+}
+
+.btn-magnetic span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   Grid Pattern Background
+   ============================================ */
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.grid-pattern-dark {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================
+   Diagonal Line Pattern
+   ============================================ */
+
+.diagonal-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(254, 225, 55, 0.04) 10px,
+    rgba(254, 225, 55, 0.04) 11px
+  );
+}
