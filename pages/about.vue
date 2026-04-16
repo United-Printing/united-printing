@@ -23,7 +23,7 @@
         </h1>
         <div class="mt-6 w-16 h-1 bg-accent" />
         <p class="mt-6 text-[17px] sm:text-[19px] leading-relaxed text-white/50 max-w-[500px] font-light">
-          Veteran-owned. Award-winning. Committed to sustainable printing and world-class service from Charlotte, NC.
+          Service Disabled Veteran Owned Business. Award-winning. Committed to sustainable printing and world-class service from Charlotte, NC.
         </p>
       </div>
     </section>
